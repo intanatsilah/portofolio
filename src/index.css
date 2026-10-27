@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --accent: #790C12;
+    --accent-rgb: 121, 12, 18;
+    --accent-light: #9b1921;
+    --accent-dark: #58080c;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Custom Font utilities */
+.font-sans {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+.font-serif {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+.font-mono {
+  font-family: 'Courier Prime', Courier, monospace;
+}
+.font-handwriting {
+  font-family: 'Caveat', cursive;
+}
+.font-script {
+  font-family: 'Alex Brush', cursive;
+}
+
+/* Floating Navbar Red Glow Shadow */
+.nav-shadow-red {
+  box-shadow: 0 10px 28px -4px rgba(121, 12, 18, 0.22), 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+/* Vintage headings */
+.chrome-heading {
+  background: linear-gradient(135deg, #18181b 0%, #3f3f46 30%, #18181b 60%, #71717a 80%, #09090b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 4px rgba(121, 12, 18, 0.18));
+}
+
+/* Scrapbook Washi Tape Effect */
+.washi-tape-red {
+  background: rgba(121, 12, 18, 0.85);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(2px);
+  position: relative;
+}
+
+.washi-tape-kraft {
+  background: rgba(220, 198, 168, 0.85);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(2px);
+  position: relative;
+}
+
+/* Vintage Paper textures */
+.bg-scrapbook {
+  background-color: #faf6f0;
+  background-image: 
+    radial-gradient(#e5d9c8 0.75px, transparent 0.75px),
+    radial-gradient(#eedfce 0.75px, #faf6f0 0.75px);
+  background-size: 30px 30px;
+  background-position: 0 0, 15px 15px;
+}
+
+/* Polaroid Card Effect */
+.polaroid {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.polaroid:hover {
+  transform: translateY(-4px) rotate(0deg) scale(1.02);
+}
+
+/* Stamp border styling */
+.stamp-border {
+  border: 2px dashed rgba(121, 12, 18, 0.35);
+  background: radial-gradient(circle at center, transparent 0, transparent 4px, currentColor 4px);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1ebd9;
+}
+::-webkit-scrollbar-thumb {
+  background: #790C12;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #9b1921;
+}
