@@ -7,13 +7,14 @@ import {
   Send, 
   MessageSquare, 
   CheckCircle, 
-  Sparkles,
-  Paperclip,
+  Sparkles, 
+  Paperclip, 
   ExternalLink
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { personalInfo } from '../data/portfolioData';
 import LinkedInIcon from './LinkedInIcon';
+import GithubIcon from './GithubIcon';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -30,11 +31,81 @@ export default function Contact() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const handleSendEmail = (e) => {
+    e.preventDefault();
+
+    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+      alert('Harap lengkapi Nama, Email, dan Pesan terlebih dahulu sebelum mengirim email.');
+      return;
+    }
+
+    const cleanSubject = formData.subject.trim() || 'Inquiry / Tawaran Kerjasama';
+    const emailSubject = encodeURIComponent(`[Portfolio Inquiry] ${cleanSubject} - ${formData.name.trim()}`);
+    
+    // Format email resmi, santun, dan tanpa pengulangan informasi
+    const emailBodyText = 
+`Yth. Intan Atsilah Balqis Rana,
+
+Perkenalkan, saya ${formData.name.trim()}.
+Menghubungi Anda sehubungan dengan ${formData.message.trim()}.
+
+Demikian pesan ini saya sampaikan. Saya menantikan kabar baik atau tanggapan dari Anda.
+
+Hormat saya,
+${formData.name.trim()}`;
+
+    const emailBody = encodeURIComponent(emailBodyText);
+
+    // Gmail Web Direct Link (bisa dibuka di browser tanpa perlu setup aplikasi email lokal)
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${personalInfo.email}&su=${emailSubject}&body=${emailBody}`;
+    
+    // Mailto fallback standard
+    const mailtoUrl = `mailto:${personalInfo.email}?subject=${emailSubject}&body=${emailBody}`;
+
+    // Coba buka Gmail web composer terlebih dahulu di tab baru
+    const win = window.open(gmailUrl, '_blank', 'noopener,noreferrer');
+    
+    // Jika pop-up diblokir atau pengguna memakai mail client bawaan
+    if (!win || win.closed || typeof win.closed === 'undefined') {
+      window.location.href = mailtoUrl;
+    }
+
+    setSubmitted(true);
+    confetti({
+      particleCount: 50,
+      spread: 70,
+      origin: { y: 0.6 },
+      colors: ['#790C12', '#9c151c', '#f7d3a2', '#ffffff']
+    });
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
 
-    // Simulate scrapbook letter dispatch
+    const cleanName = formData.name.trim() || 'Pengunjung';
+    const cleanEmail = formData.email.trim() || '-';
+    const cleanSubject = formData.subject.trim() || 'Inquiry / Peluang Kerjasama';
+    const cleanMessage = formData.message.trim() || '-';
+
+    // Format pesan WhatsApp yang formal, rapi, dan mudah dibaca
+    const waTextRaw = 
+`*Pesan Kontak Portofolio*
+
+Yth. Kak Intan Atsilah Balqis Rana,
+Perkenalkan, saya *${cleanName}*.
+
+*Perihal:* ${cleanSubject}
+*Email:* ${cleanEmail}
+
+*Pesan:*
+${cleanMessage}
+
+Terima kasih atas waktu dan perhatiannya.`;
+
+    const waUrl = `https://wa.me/6285257719100?text=${encodeURIComponent(waTextRaw)}`;
+
+    // Jalankan efek selebrasi dan buka WhatsApp secara langsung
     setTimeout(() => {
       setLoading(false);
       setSubmitted(true);
@@ -44,7 +115,10 @@ export default function Contact() {
         origin: { y: 0.6 },
         colors: ['#790C12', '#9c151c', '#f7d3a2', '#ffffff']
       });
-    }, 800);
+
+      // Buka percakapan WhatsApp di tab baru
+      window.open(waUrl, '_blank', 'noopener,noreferrer');
+    }, 600);
   };
 
   return (
@@ -125,20 +199,20 @@ export default function Contact() {
                     href={personalInfo.whatsappUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="p-3.5 rounded-xl border flex items-center gap-3.5 transition-all group bg-[#faf6f0] border-stone-200 hover:border-[#790C12] hover:bg-[#f5ede0]"
+                    className="p-3.5 rounded-xl border flex items-center gap-3.5 transition-all group bg-[#faf6f0] border-stone-200 hover:border-[#25D366] hover:bg-[#f5ede0]"
                   >
                     <div className="w-10 h-10 rounded-lg bg-[#25D366]/20 text-[#25D366] flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
                       <Phone className="w-5 h-5" />
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="text-[11px] font-mono text-stone-500 uppercase font-semibold">
-                        WhatsApp / Kontak Cepat
+                        WhatsApp / Chat Langsung
                       </div>
-                      <div className="font-mono font-bold text-sm truncate text-stone-900 group-hover:text-[#790C12] transition-colors">
-                        {personalInfo.phone}
+                      <div className="font-semibold text-sm truncate text-stone-900 group-hover:text-[#25D366] transition-colors">
+                        Kirim Pesan WhatsApp
                       </div>
                     </div>
-                    <ExternalLink className="w-4 h-4 text-stone-400 group-hover:text-[#790C12]" />
+                    <ExternalLink className="w-4 h-4 text-stone-400 group-hover:text-[#25D366]" />
                   </a>
 
                   {/* Email */}
@@ -181,20 +255,26 @@ export default function Contact() {
                     <ExternalLink className="w-4 h-4 text-stone-400 group-hover:text-[#0077b5]" />
                   </a>
 
-                  {/* Location */}
-                  <div className="p-3.5 rounded-xl border flex items-center gap-3.5 bg-[#faf6f0]/80 border-stone-200">
-                    <div className="w-10 h-10 rounded-lg bg-[#790C12]/10 text-[#790C12] flex items-center justify-center shrink-0">
-                      <MapPin className="w-5 h-5" />
+                  {/* GitHub (Menggantikan Lokasi & Domisili) */}
+                  <a
+                    href={personalInfo.github || 'https://github.com/intanatsilah'}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="p-3.5 rounded-xl border flex items-center gap-3.5 transition-all group bg-[#faf6f0] border-stone-200 hover:border-[#790C12] hover:bg-[#f5ede0]"
+                  >
+                    <div className="w-10 h-10 rounded-lg bg-stone-900/10 text-stone-900 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                      <GithubIcon className="w-5 h-5" />
                     </div>
-                    <div>
+                    <div className="flex-1 min-w-0">
                       <div className="text-[11px] font-mono text-stone-500 uppercase font-semibold">
-                        Lokasi &amp; Domisili
+                        GitHub Profile
                       </div>
-                      <div className="font-bold text-sm text-stone-900">
-                        {personalInfo.location}
+                      <div className="font-mono font-bold text-sm truncate text-stone-900 group-hover:text-[#790C12] transition-colors">
+                        github.com/intanatsilah
                       </div>
                     </div>
-                  </div>
+                    <ExternalLink className="w-4 h-4 text-stone-400 group-hover:text-[#790C12]" />
+                  </a>
                 </div>
               </div>
 
@@ -229,7 +309,7 @@ export default function Contact() {
                   <span>Kirim Pesan Langsung</span>
                 </div>
                 <h3 className="text-xl sm:text-2xl font-serif font-black tracking-tight mb-6 text-[#241e1e]">
-                  Tinggalkan Catatan atau Undangan Interview
+                  Tinggalkan Catatan atau Kerjasama untuk Saya
                 </h3>
 
                 {submitted ? (
@@ -325,21 +405,36 @@ export default function Contact() {
                       />
                     </div>
 
-                    {/* Submit Button */}
-                    <button
-                      type="submit"
-                      disabled={loading}
-                      className="w-full py-3 rounded-xl font-semibold text-sm bg-[#790C12] hover:bg-[#921118] text-white transition-all flex items-center justify-center gap-2 shadow-[0_4px_16px_rgba(121,12,18,0.35)] transform active:scale-[0.99]"
-                    >
-                      {loading ? (
-                        <span>Mengirim Surat...</span>
-                      ) : (
-                        <>
-                          <Send className="w-4 h-4" />
-                          <span>Kirim Pesan Sekarang</span>
-                        </>
-                      )}
-                    </button>
+                    {/* Submit Buttons */}
+                    <div className="flex flex-col sm:flex-row gap-3 pt-2">
+                      {/* WhatsApp Direct Submit Button */}
+                      <button
+                        type="submit"
+                        disabled={loading}
+                        className="flex-1 py-3 px-4 rounded-xl font-semibold text-sm bg-[#25D366] hover:bg-[#20ba59] text-white transition-all flex items-center justify-center gap-2 shadow-[0_4px_16px_rgba(37,211,102,0.3)] transform hover:scale-[1.01] active:scale-[0.99] cursor-pointer"
+                        title="Kirim pesan langsung ke WhatsApp Intan"
+                      >
+                        {loading ? (
+                          <span>Menghubungkan ke WhatsApp...</span>
+                        ) : (
+                          <>
+                            <Phone className="w-4 h-4 fill-current" />
+                            <span>Kirim via WhatsApp Langsung</span>
+                          </>
+                        )}
+                      </button>
+
+                      {/* Direct Email Sender Button */}
+                      <button
+                        type="button"
+                        onClick={handleSendEmail}
+                        className="py-3 px-4 rounded-xl font-semibold text-sm border border-[#790C12]/40 text-[#790C12] hover:bg-[#790C12]/10 transition-all flex items-center justify-center gap-2 bg-[#faf6f0] cursor-pointer shadow-xs hover:scale-[1.01] active:scale-[0.99]"
+                        title="Kirim pesan langsung via Email (Gmail/Mail client)"
+                      >
+                        <Mail className="w-4 h-4" />
+                        <span>Kirim via Email</span>
+                      </button>
+                    </div>
                   </form>
                 )}
               </div>

@@ -15,6 +15,7 @@ import {
 import confetti from 'canvas-confetti';
 import { personalInfo } from '../data/portfolioData';
 import LinkedInIcon from './LinkedInIcon';
+import GithubIcon from './GithubIcon';
 
 export default function Hero({ onOpenCvModal, onOpenPortfolioModal }) {
   // Typewriter effect logic
@@ -27,7 +28,7 @@ export default function Hero({ onOpenCvModal, onOpenPortfolioModal }) {
   const [phraseIndex, setPhraseIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
-  const [activeTab, setActiveTab] = useState('cv'); // 'cv', 'linkedin', 'portfolio'
+  const [activeTab, setActiveTab] = useState('cv'); // 'cv', 'linkedin', 'github', 'portfolio'
 
   useEffect(() => {
     const currentPhrase = phrases[phraseIndex];
@@ -175,54 +176,67 @@ export default function Hero({ onOpenCvModal, onOpenPortfolioModal }) {
               </span>
             </motion.div>
 
-            {/* REQUIRED TABS: Lihat & Unduh CV, LinkedIn, Portofolio PDF */}
+            {/* REQUIRED TABS: Lihat & Unduh CV, LinkedIn, GitHub, Portofolio PDF */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="w-full max-w-lg"
+              className="w-full max-w-xl"
             >
               {/* Tab Bar Container */}
               <div className="p-1.5 rounded-2xl border transition-all bg-[#fffcf7] border-[#790C12]/30 shadow-[0_6px_20px_rgba(121,12,18,0.12)]">
-                <div className="grid grid-cols-3 gap-1">
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-1">
                   
                   {/* TAB 1: CV */}
                   <button
                     onClick={() => setActiveTab('cv')}
-                    className={`relative py-2.5 px-2 rounded-xl text-xs sm:text-sm font-semibold transition-all flex flex-col sm:flex-row items-center justify-center gap-1.5 ${
+                    className={`relative py-2 px-1.5 rounded-xl text-xs sm:text-[13px] font-semibold transition-all flex flex-col sm:flex-row items-center justify-center gap-1.5 ${
                       activeTab === 'cv'
                         ? 'bg-[#790C12] text-white shadow-[0_2px_12px_rgba(121,12,18,0.4)]'
                         : 'text-[#564949] hover:text-[#790C12] hover:bg-[#790C12]/5'
                     }`}
                   >
-                    <FileText className="w-4 h-4" />
-                    <span>Lihat &amp; Unduh CV</span>
+                    <FileText className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
+                    <span>CV</span>
                   </button>
 
                   {/* TAB 2: LINKEDIN */}
                   <button
                     onClick={() => setActiveTab('linkedin')}
-                    className={`relative py-2.5 px-2 rounded-xl text-xs sm:text-sm font-semibold transition-all flex flex-col sm:flex-row items-center justify-center gap-1.5 ${
+                    className={`relative py-2 px-1.5 rounded-xl text-xs sm:text-[13px] font-semibold transition-all flex flex-col sm:flex-row items-center justify-center gap-1.5 ${
                       activeTab === 'linkedin'
                         ? 'bg-[#790C12] text-white shadow-[0_2px_12px_rgba(121,12,18,0.4)]'
                         : 'text-[#564949] hover:text-[#790C12] hover:bg-[#790C12]/5'
                     }`}
                   >
-                    <LinkedInIcon className="w-4 h-4" />
+                    <LinkedInIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
                     <span>LinkedIn</span>
                   </button>
 
-                  {/* TAB 3: PORTOFOLIO PDF */}
+                  {/* TAB 3: GITHUB */}
+                  <button
+                    onClick={() => setActiveTab('github')}
+                    className={`relative py-2 px-1.5 rounded-xl text-xs sm:text-[13px] font-semibold transition-all flex flex-col sm:flex-row items-center justify-center gap-1.5 ${
+                      activeTab === 'github'
+                        ? 'bg-[#790C12] text-white shadow-[0_2px_12px_rgba(121,12,18,0.4)]'
+                        : 'text-[#564949] hover:text-[#790C12] hover:bg-[#790C12]/5'
+                    }`}
+                  >
+                    <GithubIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
+                    <span>GitHub</span>
+                  </button>
+
+                  {/* TAB 4: PORTOFOLIO PDF */}
                   <button
                     onClick={() => setActiveTab('portfolio')}
-                    className={`relative py-2.5 px-2 rounded-xl text-xs sm:text-sm font-semibold transition-all flex flex-col sm:flex-row items-center justify-center gap-1.5 ${
+                    className={`relative py-2 px-1.5 rounded-xl text-xs sm:text-[13px] font-semibold transition-all flex flex-col sm:flex-row items-center justify-center gap-1.5 ${
                       activeTab === 'portfolio'
                         ? 'bg-[#790C12] text-white shadow-[0_2px_12px_rgba(121,12,18,0.4)]'
                         : 'text-[#564949] hover:text-[#790C12] hover:bg-[#790C12]/5'
                     }`}
                   >
-                    <FolderOpen className="w-4 h-4" />
-                    <span>Portofolio PDF</span>
+                    <FolderOpen className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
+                    <span>Portofolio</span>
                   </button>
                 </div>
 
@@ -231,26 +245,27 @@ export default function Hero({ onOpenCvModal, onOpenPortfolioModal }) {
                   {activeTab === 'cv' && (
                     <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-left">
                       <div>
-                        <div className="text-xs font-bold font-mono text-[#790C12] uppercase tracking-wider">
-                          Curriculum Vitae (2 Halaman)
+                        <div className="text-xs font-bold font-mono text-[#790C12] uppercase tracking-wider flex items-center gap-1.5">
+                          <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                          Curriculum Vitae (PDF Asli)
                         </div>
                         <p className="text-xs text-stone-700">
-                          Resume lengkap pendidikan, pengalaman kerja UMM &amp; Diskominfo.
+                          Buka langsung dengan PDF Reader Embed interaktif atau unduh dokumen asli.
                         </p>
                       </div>
-                      <div className="flex items-center gap-2 w-full sm:w-auto">
+                      <div className="flex items-center gap-2 w-full sm:w-auto shrink-0">
                         <button
                           onClick={onOpenCvModal}
-                          className="flex-1 sm:flex-none px-3 py-1.5 rounded-lg text-xs font-semibold border border-[#790C12] text-[#790C12] hover:bg-[#790C12] hover:text-white transition-all flex items-center justify-center gap-1"
+                          className="flex-1 sm:flex-none px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-[#790C12] hover:bg-[#921118] text-white transition-all flex items-center justify-center gap-1.5 shadow-[0_2px_8px_rgba(121,12,18,0.35)] cursor-pointer"
                         >
                           <FileText className="w-3.5 h-3.5" />
-                          <span>Baca CV</span>
+                          <span>Lihat CV</span>
                         </button>
                         <a
                           href={personalInfo.cvPdf}
                           download="CV_Intan_Atsilah_Balqis_Rana.pdf"
                           onClick={triggerConfetti}
-                          className="flex-1 sm:flex-none px-3 py-1.5 rounded-lg text-xs font-semibold bg-[#790C12] hover:bg-[#921118] text-white transition-all flex items-center justify-center gap-1 shadow-[0_2px_8px_rgba(121,12,18,0.35)]"
+                          className="flex-1 sm:flex-none px-3 py-1.5 rounded-lg text-xs font-semibold border border-[#790C12] text-[#790C12] hover:bg-[#790C12]/10 transition-all flex items-center justify-center gap-1.5 bg-white"
                         >
                           <FileDown className="w-3.5 h-3.5" />
                           <span>Unduh PDF</span>
@@ -266,7 +281,7 @@ export default function Hero({ onOpenCvModal, onOpenPortfolioModal }) {
                           Profil LinkedIn Profesional
                         </div>
                         <p className="text-xs text-stone-700">
-                          Terhubung secara profesional dan lihat jejaring karir Intan.
+                          Terhubung secara profesional dan lihat rekam jejak karir Intan.
                         </p>
                       </div>
                       <a
@@ -282,29 +297,53 @@ export default function Hero({ onOpenCvModal, onOpenPortfolioModal }) {
                     </div>
                   )}
 
-                  {activeTab === 'portfolio' && (
+                  {activeTab === 'github' && (
                     <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-left">
                       <div>
                         <div className="text-xs font-bold font-mono text-[#790C12] uppercase tracking-wider">
-                          Dokumen Portofolio PDF (10 Slide)
+                          Repositori &amp; Kode GitHub
                         </div>
                         <p className="text-xs text-stone-700">
-                          Kompilasi visual proyek UI/UX, Diskominfo, dan Bank Sampah.
+                          Jelajahi repositori proyek web, aplikasi mobile, dan source code Intan.
                         </p>
                       </div>
-                      <div className="flex items-center gap-2 w-full sm:w-auto">
+                      <a
+                        href={personalInfo.github || 'https://github.com/intanatsilah'}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="w-full sm:w-auto px-4 py-1.5 rounded-lg text-xs font-semibold bg-stone-900 hover:bg-stone-800 text-white transition-all flex items-center justify-center gap-1.5 shadow-[0_2px_8px_rgba(0,0,0,0.25)]"
+                      >
+                        <GithubIcon className="w-3.5 h-3.5" />
+                        <span>Buka GitHub</span>
+                        <ExternalLink className="w-3 h-3" />
+                      </a>
+                    </div>
+                  )}
+
+                  {activeTab === 'portfolio' && (
+                    <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-left">
+                      <div>
+                        <div className="text-xs font-bold font-mono text-[#790C12] uppercase tracking-wider flex items-center gap-1.5">
+                          <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                          Dokumen Portofolio (PDF Asli)
+                        </div>
+                        <p className="text-xs text-stone-700">
+                          Buka langsung seluruh dokumen portofolio dengan PDF Reader Embed tanpa per slide.
+                        </p>
+                      </div>
+                      <div className="flex items-center gap-2 w-full sm:w-auto shrink-0">
                         <button
                           onClick={onOpenPortfolioModal}
-                          className="flex-1 sm:flex-none px-3 py-1.5 rounded-lg text-xs font-semibold border border-[#790C12] text-[#790C12] hover:bg-[#790C12] hover:text-white transition-all flex items-center justify-center gap-1"
+                          className="flex-1 sm:flex-none px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-[#790C12] hover:bg-[#921118] text-white transition-all flex items-center justify-center gap-1.5 shadow-[0_2px_8px_rgba(121,12,18,0.35)] cursor-pointer"
                         >
                           <FolderOpen className="w-3.5 h-3.5" />
-                          <span>Lihat Slide</span>
+                          <span>Lihat Portofolio</span>
                         </button>
                         <a
                           href={personalInfo.portfolioPdf}
                           download="Portfolio_Intan_Atsilah_Balqis_Rana.pdf"
                           onClick={triggerConfetti}
-                          className="flex-1 sm:flex-none px-3 py-1.5 rounded-lg text-xs font-semibold bg-[#790C12] hover:bg-[#921118] text-white transition-all flex items-center justify-center gap-1 shadow-[0_2px_8px_rgba(121,12,18,0.35)]"
+                          className="flex-1 sm:flex-none px-3 py-1.5 rounded-lg text-xs font-semibold border border-[#790C12] text-[#790C12] hover:bg-[#790C12]/10 transition-all flex items-center justify-center gap-1.5 bg-white"
                         >
                           <FileDown className="w-3.5 h-3.5" />
                           <span>Unduh PDF</span>

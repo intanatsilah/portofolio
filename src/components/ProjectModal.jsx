@@ -35,9 +35,14 @@ export default function ProjectModal({ project, isOpen, onClose }) {
                 <h3 className="font-serif font-black text-base sm:text-lg text-[#241e1e]">
                   {project.title}
                 </h3>
-                <span className="font-mono text-xs text-[#790C12] font-semibold">
-                  {project.client} • {project.year}
-                </span>
+                <div className="flex flex-wrap items-center gap-2 font-mono text-xs text-[#790C12] font-semibold">
+                  <span>{project.client} • {project.year}</span>
+                  {project.certificateId && (
+                    <span className="px-2 py-0.5 rounded bg-[#790C12]/10 text-[#790C12] font-bold border border-[#790C12]/20">
+                      ID: {project.certificateId}
+                    </span>
+                  )}
+                </div>
               </div>
             </div>
 

@@ -4,6 +4,7 @@ import Hero from './components/Hero';
 import About from './components/About';
 import Experience from './components/Experience';
 import Portfolio from './components/Portfolio';
+import CertificatesSection from './components/CertificatesSection';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import CvModal from './components/CvModal';
@@ -44,12 +45,17 @@ export default function App() {
         {/* Section 3: Riwayat & Karir (Experience & Education & Skills) */}
         <Experience />
 
-        {/* Section 4: Portfolio (Projects, Web, Mobile, Certificates, Etc.) */}
+        {/* Section 4: Portfolio (Projects, Web, Mobile, Etc.) */}
         <Portfolio
           onSelectProject={(project) => setSelectedProject(project)}
         />
 
-        {/* Section 5: Kontak (Contact) */}
+        {/* Section 5: Sertifikat (Certificates & SK Terverifikasi) */}
+        <CertificatesSection
+          onSelectCertificate={(cert) => setSelectedProject(cert)}
+        />
+
+        {/* Section 6: Kontak (Contact) */}
         <Contact />
       </main>
 

@@ -13,9 +13,11 @@ export const personalInfo = {
   candidImage: "/assets/portfolio_img_5.jpg",
   location: "Malang, Jawa Timur, Indonesia",
   phone: "+6285257719100",
+  maskedPhone: "+62 852-5771-••••",
   whatsappUrl: "https://wa.me/6285257719100?text=Halo%20Intan,%20saya%20tertarik%20dengan%20profil%20dan%20portfolio%20Anda",
   email: "intanatsilahbr@gmail.com",
   linkedin: "https://www.linkedin.com/in/intanatsilah",
+  github: "https://github.com/intanatsilah",
   cvPdf: "/CV_Intan_Atsilah_Balqis_Rana.pdf",
   cvPages: [
     "/assets/cv_page_1.png",
@@ -95,15 +97,16 @@ export const careerTimeline = [
     id: "exp-1",
     type: "experience",
     category: "Magang & Kerja",
-    title: "Part-Time Staff Tata Usaha Biro Kemahasiswaan",
+    title: "Part-Time Staff Tata Usaha Kemahasiswaan",
     organization: "Universitas Muhammadiyah Malang",
-    period: "Maret - April 2026",
+    period: "April 2026",
     status: "Part-Time",
     location: "Malang, Jawa Timur",
-    description: "Mengelola administrasi berkas akademik Tata Usaha Kemahasiswaan mencakup berkas Warek III, berkas Ketua Kemahasiswaan, dokumen acara kemahasiswaan, dan pembuatan surat aktif kuliah.",
+    image: "/assets/umm.jpg",
+    description: "Mengelola administrasi berkas akademik Tata Usaha Kemahasiswaan mencakup berkas Wakil Rektor III, Kepala Biro Akademik, dokumen kegiatan mahasiswa, serta pembuatan surat keterangan aktif kuliah.",
     highlights: [
-      "Menangani ±150 berkas administrasi akademik dan kemahasiswaan dengan tingkat akurasi tinggi sesuai standar prosedur.",
-      "Mengoperasikan Microsoft Office (Word, Excel, PowerPoint) dan Google Workspace (Docs, Sheets, Drive) untuk mendukung administrasi, pengarsipan digital, dan pengelolaan data secara efektif."
+      "Mengelola dan memverifikasi ±150 berkas administrasi akademik dan kemahasiswaan, meliputi berkas Wakil Rektor III, Kepala Biro Akademik, dokumen kegiatan mahasiswa, serta surat keterangan aktif kuliah sesuai dengan prosedur kemahasiswaan.",
+      "Menggunakan Microsoft Office (Word, Excel, PowerPoint) dan Google Workspace (Docs, Sheets, Drive) untuk mendukung pengelolaan data, administrasi, serta pengarsipan dokumen secara efektif dan terorganisir."
     ],
     skills: ["Microsoft Office", "Google Workspace", "Pengarsipan Dokumen", "Verifikasi Berkas", "Administrasi Kampus"]
   },
@@ -116,6 +119,7 @@ export const careerTimeline = [
     period: "Okt 2025 - Maret 2026",
     status: "Part-Time",
     location: "Malang, Jawa Timur",
+    image: "/assets/umm.jpg",
     description: "Mengelola proses administrasi sertifikasi mahasiswa, verifikasi data kompetensi, dan komunikasi publik institusi.",
     highlights: [
       "Mengelola dan melayani proses pengambilan sertifikat serta melakukan verifikasi dan pengecekan data sertifikat untuk memastikan ketepatan informasi.",
@@ -133,6 +137,7 @@ export const careerTimeline = [
     period: "Feb 2025 - Maret 2025",
     status: "Internship",
     location: "Kepanjen, Kab. Malang",
+    image: "/assets/portfolio_img_4.jpg",
     description: "Merancang wireframe, interactive prototype, dan mengimplementasikan sistem web peminjaman ruang rapat 5 divisi secara full-stack.",
     highlights: [
       "Merancang wireframe dan prototipe UI/UX interaktif menggunakan Figma untuk sistem peminjaman ruang rapat berbasis web dalam 2 minggu dan mendapat approval langsung dari stakeholder.",
@@ -150,6 +155,7 @@ export const careerTimeline = [
     period: "Okt 2024 - Okt 2025",
     status: "Kepengurusan",
     location: "UMM, Malang",
+    image: "/assets/portfolio_img_11.jpg",
     description: "Memimpin strategi komunikasi visual, branding, dan publikasi edukasi teknologi komunitas pengembang mahasiswa UMM.",
     highlights: [
       "Mengelola strategi konten dan monitoring performance platform social media DevCom dengan insights mencapai 1200+ untuk feeds serta 1300+ untuk Boothcamp Mobile Apps.",
@@ -167,6 +173,7 @@ export const careerTimeline = [
     period: "Maret - Juni 2025",
     status: "Fungsionaris",
     location: "UMM, Malang",
+    image: "/assets/portfolio_img_9.jpg",
     description: "Merancang program kerja inovatif akademik dan menjalin kolaborasi riset antar peminatan prodi Informatika.",
     highlights: [
       "Merancang Program Kerja inovatif bidang akademik di lingkungan Informatika UMM dengan partisipasi ±40 mahasiswa pada Informatics Championship.",
@@ -184,6 +191,7 @@ export const careerTimeline = [
     period: "Sept 2023 - Juni 2024",
     status: "Fungsionaris",
     location: "UMM, Malang",
+    image: "/assets/portfolio_img_7.jpg",
     description: "Bertanggung jawab penuh atas tata kelola persuratan, notulensi, legalitas MoU, dan timeline seluruh program kerja akademik.",
     highlights: [
       "Menyusun dan memverifikasi seluruh berkas administrasi internal: 3 proposal program kerja, 15+ surat peminjaman & permohonan, 6 MoU elemen, serta Laporan Pertanggungjawaban (LPJ).",
@@ -202,6 +210,7 @@ export const careerTimeline = [
     period: "2022 - 2026",
     status: "IPK 3.88 / 4.00",
     location: "Malang, Jawa Timur",
+    image: "/assets/portfolio_img_1.jpg",
     description: "Menyelesaikan program studi S1 Teknik Informatika dengan fokus pada Interaksi Manusia dan Komputer (UI/UX), Rekayasa Perangkat Lunak, dan Manajemen Sistem Informasi.",
     highlights: [
       "Meraih Indeks Prestasi Kumulatif (IPK) 3.88 dari skala 4.00.",
@@ -217,9 +226,9 @@ export const skillCategories = [
     category: "UI/UX & Desain",
     icon: "Layout",
     skills: [
-      { name: "Figma", level: "Beginner", desc: "Wireframing, High-Fidelity UI, Auto-Layout, Interactive Prototyping, Component Systems" },
+      { name: "Figma", level: "Intermediate", desc: "Wireframing, High-Fidelity UI, Auto-Layout, Interactive Prototyping, Component Systems" },
       { name: "Canva", level: "Beginner", desc: "Social Media Kits, Branding, Visual Presentations, Poster & Banners" },
-      { name: "Usability Testing", level: "Beginner", desc: "SUS (System Usability Scale), User Testing Interview, Task Flow Evaluation" },
+      { name: "Usability Testing", level: "Expert", desc: "SUS (System Usability Scale), User Testing Interview, Task Flow Evaluation" },
       { name: "Design System", level: "Beginner", desc: "Typography scales, Color tokens, Reusable UI Components, Style Guides" }
     ]
   },
@@ -228,10 +237,10 @@ export const skillCategories = [
     icon: "FileSpreadsheet",
     skills: [
       { name: "Microsoft Excel", level: "Beginner", desc: "Pengelolaan data berkas, VLOOKUP, Pivot Tables, Formulasi Administrasi" },
-      { name: "Microsoft Word", level: "Beginner", desc: "Penyusunan Proposal Resmi, Surat Keputusan, Notulensi, Format LPJ Standar Kampus" },
+      { name: "Microsoft Word", level: "Intermediate", desc: "Penyusunan Proposal Resmi, Surat Keputusan, Notulensi, Format LPJ Standar Kampus" },
       { name: "Microsoft PowerPoint", level: "Beginner", desc: "Pitch deck, Slide presentasi interaktif dan informatif" },
       { name: "Google Workspace", level: "Beginner", desc: "Google Docs, Google Sheets Kolaboratif, Google Drive Cloud Storage & File Permissions" },
-      { name: "Pengarsipan & Verifikasi", level: "Beginner", desc: "Audit ketepatan berkas, penomoran surat, alur verifikasi multi-stakeholder" }
+      { name: "Pengarsipan & Verifikasi", level: "Intermediate", desc: "Audit ketepatan berkas, penomoran surat, alur verifikasi multi-stakeholder" }
     ]
   },
   {
@@ -240,7 +249,7 @@ export const skillCategories = [
     skills: [
       { name: "Laravel (PHP)", level: "Intermediate", desc: "MVC Architecture, Blade Templating, Authentication, Database Migration" },
       { name: "MySQL", level: "Intermediate", desc: "Relational DB design, Query optimization, Data integrity" },
-      { name: "Flutter", level: "Novice", desc: "Mobile UI prototyping, Widget tree, State management dasar" },
+      { name: "Flutter", level: "Beginner", desc: "Mobile UI prototyping, Widget tree, State management dasar" },
       { name: "HTML & CSS", level: "Intermediate", desc: "Responsive Layout, Flexbox, Grid, Semantic Web" }
     ]
   },
@@ -265,13 +274,13 @@ export const portfolioProjects = [
     title: "Web Sistem Peminjaman Ruang Rapat",
     client: "DISKOMINFO Kabupaten Malang",
     year: "2025",
-    tagline: "Sistem Reservasi Ruang Rapat 5 Divisi Bebas Bentrok Jadwal",
+    tagline: "Sistem Reservasi Ruang Rapat",
     description: "Website ini dikembangkan untuk membantu 5 divisi Dinas Kominfo Kabupaten Malang mengelola peminjaman ruang rapat dan mencegah bentrok jadwal. Sistem menyediakan 5 akun berbeda serta terintegrasi dengan WhatsApp untuk mengajukan peminjaman dan mengecek ketersediaan ruangan tanpa perlu login. Dibangun menggunakan Laravel (PHP) dan MySQL.",
     image: "/assets/ruang_rapat.jpg",
     secondaryImage: "/assets/portfolio_img_11.jpg",
     secondaryImageCaption: "Dokumentasi Implementasi Sistem & Presentasi Bersama Stakeholder Diskominfo",
-    projectUrl: "https://drive.google.com/drive/folders/1q1ksZr7_ffwjbwmMfTqnFWEYUur0LWsW?usp=sharing",
-    actionLabel: "Buka Proyek Drive",
+    projectUrl: "https://github.com/intanatsilah/website-pinjam-ruang-rapat.git",
+    actionLabel: "Buka GitHub Repository",
     tools: ["Figma", "Laravel (PHP)", "MySQL", "WhatsApp Integration", "Bootstrap"],
     metrics: [
       { label: "Divisi Terintegrasi", value: "5 Divisi" },
@@ -280,7 +289,7 @@ export const portfolioProjects = [
       { label: "Status", value: "Approved by Stakeholder" }
     ],
     features: [
-      "Jadwal ketersediaan ruang rapat real-time yang bisa dicek langsung tanpa login",
+      "Jadwal ketersediaan ruang rapat real-time",
       "Pengajuan booking online dengan konfirmasi instan",
       "Manajemen data 5 akun divisi tersinkronisasi",
       "Notifikasi pengingat dan status via integrasi WhatsApp",
@@ -290,18 +299,18 @@ export const portfolioProjects = [
   },
   {
     id: "proj-2",
-    category: "Mobile App",
+    category: "UI/UX Design",
     title: "Prototype Mobile App Bank Sampah",
     client: "Dusun Sekar Putih Batu",
-    year: "2024 - 2025",
-    tagline: "Digitalisasi Bank Sampah Komunitas dengan Skor Usability 86/100",
-    description: "Prototype aplikasi mobile yang dirancang untuk mentransformasi proses kegiatan bank sampah konvensional di Dusun Sekar Putih Batu yang sebelumnya manual. Menghadirkan antarmuka bersih dan ramah pengguna dengan 2 role (Admin & Warga), fitur kategori sampah, setor sampah, penjadwalan penjemputan, laporan saldo, serta telah diuji melalui Usability Testing.",
+    year: "2026",
+    tagline: "Digitalisasi Bank Sampah Dusun Sekar Putih Batu",
+    description: "Prototype aplikasi mobile yang dirancang untuk mentransformasi proses kegiatan bank sampah secara digital di Dusun Sekar Putih Batu yang sebelumnya manual. Menghadirkan antarmuka bersih dan ramah pengguna dengan 2 role (Admin & Warga), fitur kategori sampah, setor sampah, penjadwalan penjemputan, laporan saldo, serta telah diuji melalui Usability Testing.",
     image: "/assets/bank_sampah.jpg",
     secondaryImage: "/assets/portfolio_img_9.jpg",
     secondaryImageCaption: "Antarmuka Onboarding & Alur Login Pengguna Bank Sampah",
     projectUrl: "https://www.figma.com/design/GtHNUNCgQ0YWPclrChYdIC/Bank-Sampah?node-id=0-1&t=8KMgyrWuDlqlCzny-1",
     actionLabel: "Buka Prototipe Figma",
-    tools: ["Figma", "User Research", "Wireframing", "Usability Testing (SUS)", "Mobile UI"],
+    tools: ["User Experience", "Wireframing", "Usability Testing (Maze)", "Human-Centered Design"],
     metrics: [
       { label: "Usability Score (SUS)", value: "86 / 100" },
       { label: "Target Pengguna", value: "Admin & Warga" },
@@ -310,19 +319,19 @@ export const portfolioProjects = [
     ],
     features: [
       "Katalog jenis & tarif harga sampah terbarukan per kilogram",
-      "Modul setor sampah dan pemilihan titik jadwal penjemputan berkala",
+      "Modul setor sampah",
       "Pencatatan saldo digital warga dan riwayat mutasi transaksi",
-      "Laporan statistik tonase sampah bulanan untuk pengurus",
+      "Laporan statistik sampah bulanan untuk pengurus",
       "Dua hak akses terpisah: antarmuka Admin pengelola dan Warga nasabah"
     ],
     deliverables: ["Low-Fidelity Wireframes", "High-Fidelity Interactive Prototype", "Usability Test Report", "Design System Kit"]
   },
   {
     id: "proj-3",
-    category: "Mobile App",
+    category: "UI/UX Design",
     title: "Prototype Mobile App SmartTime",
     client: "Project Perkuliahan & Riset UI/UX",
-    year: "2024",
+    year: "2025",
     tagline: "Personal Academic & Task Management Assistant untuk Mahasiswa",
     description: "Prototype aplikasi yang dirancang khusus untuk mempermudah rutinitas mahasiswa sehari-hari. Mencakup pengaturan jadwal kuliah harian, pelacakan progres tugas dan asistensi praktikum, timeline agenda kampus maupun kuliah tamu, serta modul pengingat yang dapat dikustomisasi sesuai preferensi pengguna.",
     image: "/assets/smart_time.jpg",
@@ -330,7 +339,7 @@ export const portfolioProjects = [
     secondaryImageCaption: "Antarmuka Login Mahasiswa & Manajemen Jadwal Harian",
     projectUrl: "https://www.figma.com/design/GtHNUNCgQ0YWPclrChYdIC/Intan-s-Project?node-id=16-2486&t=pDkiHnRtchd3cIld-1",
     actionLabel: "Buka Prototipe Figma",
-    tools: ["Figma", "User Flow", "Mobile Interface", "Design System"],
+    tools: ["Rekayasa Interaksi", "User Flow", "Mobile Interface", "Design System"],
     metrics: [
       { label: "Modul", value: "Jadwal, Progres, Alarm" },
       { label: "Visual Progress", value: "Percentage Indicator" },
@@ -345,7 +354,65 @@ export const portfolioProjects = [
     deliverables: ["Interactive Prototype di Figma", "Color & Typography Tokens", "User Persona & User Journey"]
   },
   {
+    id: "proj-mobile-smarttime",
+    category: "Mobile App",
+    title: "SmartTime Mobile App",
+    client: "Project Perkuliahan & Pengembangan Aplikasi",
+    year: "2025",
+    tagline: "Personal Academic & Task Management Assistant untuk Mahasiswa",
+    description: "Aplikasi mobile SmartTime yang dikembangkan untuk membantu mahasiswa mengatur jadwal perkuliahan, mengelola tenggat waktu tugas, alarm pengingat, dan pelacakan progres praktikum secara terstruktur. Kode sumber repositori tersedia di GitHub.",
+    image: "/assets/smart_time.jpg",
+    secondaryImage: "/assets/smarttime_screen_login.png",
+    secondaryImageCaption: "Tampilan Antarmuka dan Alur Aplikasi Mobile SmartTime",
+    projectUrl: "https://github.com/intanatsilah/smarttime.git",
+    actionLabel: "Buka Repository GitHub",
+    tools: ["React", "Expo", "Mobile Development", "Git/GitHub"],
+    metrics: [
+      { label: "Platform", value: "Mobile (Android/iOS)" },
+      { label: "Fitur Utama", value: "Jadwal, Task & Reminder" },
+      { label: "Repository", value: "GitHub Public" },
+      { label: "Target Pengguna", value: "Mahasiswa Aktif" }
+    ],
+    features: [
+      "Manajemen jadwal kuliah harian dan kalender akademik interaktif",
+      "Pelacakan checklist tugas perkuliahan dan progres asistensi",
+      "Sistem notifikasi pengingat / reminder otomatis sebelum tenggat waktu",
+      "Antarmuka yang bersih, intuitif, dan responsif untuk kenyamanan pengguna"
+    ],
+    deliverables: ["Source Code di GitHub", "Mobile App Architecture", "User Interface Implementation"]
+  },
+  {
+    id: "proj-4",
+    category: "Etc.",
+    title: "Branding Visual & Digital Campaign DevCom",
+    client: "Developer Community UMM",
+    year: "2024 - 2025",
+    tagline: "Strategi Konten & Identitas Visual Komunitas Pengembang Teknologi",
+    description: "Perancangan identitas visual, template media sosial, dan kampanye promosi acara Boothcamp Mobile Apps serta workshop teknologi. Berhasil menjangkau lebih dari 1.300+ interaksi dan meningkatkan engagement komunitas secara masif.",
+    image: "/assets/devcom_insta.jpg",
+    secondaryImage: "/assets/portfolio_img_8.jpg",
+    secondaryImageCaption: "Dokumentasi Pelatihan & Praktikum Bootcamp di Laboratorium Komputer",
+    projectUrl: "https://www.instagram.com/devcom_umm/",
+    actionLabel: "Buka Dokumentasi Proyek",
+    tools: ["Canva", "Figma", "Social Media Analytics", "Content Planning"],
+    metrics: [
+      { label: "Post Insights", value: "1,200+ Feeds" },
+      { label: "Bootcamp Reach", value: "1,300+ Accounts" },
+      { label: "Tingkat Partisipasi", value: "Meningkat Signifikan" }
+    ],
+    features: [
+      "Desain feed dan story edukatif seputar dunia pemrograman dan mobile dev",
+      "Dokumentasi fotografi dan videografi kegiatan tatap muka serta bootcamp",
+      "Pembuatan guideline visual dan palet warna representasi komunitas"
+    ],
+    deliverables: ["Social Media Asset Kit", "Dokumentasi Kegiatan", "Analytics Report"]
+  }
+];
+
+export const certificatesData = [
+  {
     id: "cert-1",
+    certificateId: "E.4.d/523/UMM/III/2026",
     category: "Certificates",
     title: "Sertifikat Pelayanan Staff Tata Usaha LSP UMM",
     client: "Lembaga Sertifikasi Profesi (LSP) UMM",
@@ -373,20 +440,21 @@ export const portfolioProjects = [
   },
   {
     id: "cert-2",
+    certificateId: "E.4.d/03/FT-UMM/I/2025",
     category: "Certificates",
-    title: "Sertifikat Kepengurusan HIMIF UMM",
+    title: "Sertifikat Kepengurusan HMIF UMM",
     client: "Himpunan Mahasiswa Informatika UMM",
     year: "2023 - 2024",
-    tagline: " Sekretaris Bidang Akademik HIMIF Periode 2023/2024",
-    description: "Surat Keputusan resmi yang melegalkan wewenang tata kelola surat menyurat, penyusunan 3 proposal proker, legalitas 6 MoU dengan elemen kemahasiswaan, dan pertanggungjawaban administrasi organisasi tingkat program studi.",
+    tagline: " Sekretaris Bidang Akademik HMIF Periode 2023/2024",
+    description: "Piagam penghargaan atas kontribusi aktif sebagai Sekretaris Bidang Akademik HMIF UMM dalam perancangan program kerja akademik, pengelolaan administrasi internal.",
     image: "/assets/sertif_hmif.jpg",
     secondaryImage: "/assets/portfolio_img_2.jpg",
     secondaryImageCaption: "Dokumentasi Rapat Kerja & Pengesahan Surat Keputusan Fungsionaris",
-    projectUrl: "https://drive.google.com/file/d/1hc8XAqYCGeXfmKlcrDC0_s-YtTE_63bD/view?usp=sharing",
-    actionLabel: "Buka SK Kepengurusan",
-    tools: ["SK Resmi", "HIMIF UMM", "Legalitas Administrasi"],
+    projectUrl: "https://drive.google.com/file/d/14FssoA70WjSRwXpSWUOLn38AED01KPCd/view?usp=sharing",
+    actionLabel: "Buka Piagam Penghargaan",
+    tools: ["Piagam Penghargaan", "HMIF UMM", "Legalitas Administrasi"],
     metrics: [
-      { label: "Lembaga", value: "HIMIF UMM" },
+      { label: "Lembaga", value: "HMIF UMM" },
       { label: "Jabatan", value: "Sekretaris Bidang" },
       { label: "Periode", value: "2023 - 2024" },
       { label: "Status", value: "SK Terbit Resmi" }
@@ -400,18 +468,19 @@ export const portfolioProjects = [
   },
   {
     id: "cert-3",
+    certificateId: "322/SK-MAWA/FT-UMM/VII/2024",
     category: "Certificates",
-    title: "Surat Keputusan (SK) Fungsionaris Akademik HIMIF",
-    client: "Universitas Muhammadiyah Malang & HIMIF",
+    title: "Surat Keputusan (SK) Fungsionaris Akademik HMIF",
+    client: "Universitas Muhammadiyah Malang & HMIF",
     year: "2024 - 2025",
     tagline: "Penghargaan Kontribusi Program Kerja Akademik & Informatics Championship",
-    description: "Piagam penghargaan atas kontribusi aktif dalam perancangan inovasi akademik di lingkungan Informatika UMM, penjaringan minat bakat mahasiswa, serta penyelenggaraan program kerja Informatics Championship.",
+    description: "Surat Keputusan resmi yang melegalkan wewenang dan tanggung jawab sebagai Fungsionaris Bidang Akademik HMIF UMM. SK ini diterbitkan sebagai bentuk pengakuan atas kontribusi aktif dalam merancang program kerja akademik serta mendukung pelaksanaan program kerja bidang akademik.",
     image: "/assets/sk_2025.jpg",
     secondaryImage: "/assets/portfolio_img_3.jpg",
     secondaryImageCaption: "Dokumentasi Evaluasi Program Kerja & Pelaksanaan Informatics Championship",
-    projectUrl: "https://drive.google.com/file/d/14FssoA70WjSRwXpSWUOLn38AED01KPCd/view?usp=sharing",
-    actionLabel: "Buka Piagam HIMIF",
-    tools: ["Piagam Penghargaan", "Akademik UMM", "Informatics Championship"],
+    projectUrl: "https://drive.google.com/file/d/1_MEz6soxpxAGxTguyYZkMGMJNvpVZKVZ/view?usp=sharing",
+    actionLabel: "Buka SK",
+    tools: ["SK Resmi", "Bidang Akademik", "HMIF UMM"],
     metrics: [
       { label: "Pemberi", value: "Prodi Informatika" },
       { label: "Predikat", value: "Fungsionaris Aktif" },
@@ -424,31 +493,5 @@ export const portfolioProjects = [
       "Fasilitasi penyaluran bakat kompetisi mahasiswa"
     ],
     deliverables: ["Piagam Penghargaan Digital Resmi"]
-  },
-  {
-    id: "proj-4",
-    category: "Etc.",
-    title: "Branding Visual & Digital Campaign DevCom",
-    client: "Developer Community UMM",
-    year: "2024 - 2025",
-    tagline: "Strategi Konten & Identitas Visual Komunitas Pengembang Teknologi",
-    description: "Perancangan identitas visual, template media sosial, dan kampanye promosi acara Boothcamp Mobile Apps serta workshop teknologi. Berhasil menjangkau lebih dari 1.300+ interaksi dan meningkatkan engagement komunitas secara masif.",
-    image: "/assets/portfolio_img_7.jpg",
-    secondaryImage: "/assets/portfolio_img_8.jpg",
-    secondaryImageCaption: "Dokumentasi Pelatihan & Praktikum Bootcamp di Laboratorium Komputer",
-    projectUrl: "https://drive.google.com/drive/folders/1q1ksZr7_ffwjbwmMfTqnFWEYUur0LWsW?usp=sharing",
-    actionLabel: "Buka Dokumentasi Proyek",
-    tools: ["Canva", "Figma", "Social Media Analytics", "Content Planning"],
-    metrics: [
-      { label: "Post Insights", value: "1,200+ Feeds" },
-      { label: "Bootcamp Reach", value: "1,300+ Accounts" },
-      { label: "Tingkat Partisipasi", value: "Meningkat Signifikan" }
-    ],
-    features: [
-      "Desain feed dan story edukatif seputar dunia pemrograman dan mobile dev",
-      "Dokumentasi fotografi dan videografi kegiatan tatap muka serta bootcamp",
-      "Pembuatan guideline visual dan palet warna representasi komunitas"
-    ],
-    deliverables: ["Social Media Asset Kit", "Dokumentasi Kegiatan", "Analytics Report"]
   }
 ];

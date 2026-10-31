@@ -10,17 +10,18 @@ import {
   Eye, 
   Paperclip, 
   Sparkles,
-  ArrowUpRight
+  ArrowUpRight,
+  Palette
 } from 'lucide-react';
 import { portfolioProjects } from '../data/portfolioData';
 
 export default function Portfolio({ onSelectProject }) {
-  // Tabs: 'All Projects', 'Web App', 'Mobile App', 'Certificates', 'Etc.'
+  // Tabs: 'All Projects', 'UI/UX Design', 'Web App', 'Mobile App', 'Etc.' (Certificates dipindah ke Navbar tersendiri)
   const tabs = [
     { id: 'all', label: 'All Projects', icon: Layers },
+    { id: 'UI/UX Design', label: 'UI/UX Design', icon: Palette },
     { id: 'Web App', label: 'Web App', icon: Globe },
     { id: 'Mobile App', label: 'Mobile App', icon: Smartphone },
-    { id: 'Certificates', label: 'Certificates', icon: Award },
     { id: 'Etc.', label: 'Etc.', icon: FolderGit2 },
   ];
 
@@ -75,34 +76,46 @@ export default function Portfolio({ onSelectProject }) {
                 <button
                   key={tab.id}
                   onClick={() => setActiveCategory(tab.id)}
-                  className={`px-3.5 sm:px-5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center gap-1.5 ${
-                    isActive
-                      ? 'bg-[#790C12] text-white shadow-[0_2px_12px_rgba(121,12,18,0.4)]'
-                      : 'text-[#564949] hover:text-[#790C12] hover:bg-[#790C12]/5'
+                  className={`relative px-3.5 sm:px-5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-colors flex items-center gap-1.5 cursor-pointer ${
+                    isActive ? 'text-white' : 'text-[#564949] hover:text-[#790C12] hover:bg-[#790C12]/5'
                   }`}
                 >
-                  <Icon className="w-4 h-4" />
-                  <span>{tab.label}</span>
+                  {isActive && (
+                    <motion.div
+                      layoutId="activePortfolioTabPill"
+                      className="absolute inset-0 rounded-xl bg-[#790C12] shadow-[0_4px_14px_rgba(121,12,18,0.35)]"
+                      transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                    />
+                  )}
+                  <span className="relative z-10 flex items-center gap-1.5">
+                    <Icon className="w-4 h-4" />
+                    <span>{tab.label}</span>
+                  </span>
                 </button>
               );
             })}
           </div>
         </div>
 
-        {/* Projects Grid */}
+        {/* Projects Grid dengan Transisi Halus (Spring & Stagger) */}
         <motion.div 
           layout
+          transition={{ type: 'spring', stiffness: 300, damping: 30 }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
         >
-          <AnimatePresence>
+          <AnimatePresence mode="popLayout">
             {filteredProjects.map((project, idx) => (
               <motion.div
                 key={project.id}
                 layout
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.35, delay: idx * 0.05 }}
+                initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.9, y: 20 }}
+                transition={{ 
+                  duration: 0.35, 
+                  ease: [0.25, 0.1, 0.25, 1],
+                  layout: { type: 'spring', stiffness: 300, damping: 30 } 
+                }}
                 className="group rounded-2xl border relative flex flex-col justify-between overflow-hidden transition-all duration-300 hover:-translate-y-1.5 bg-white border-[#e5dcd1] hover:border-[#790C12] shadow-sm hover:shadow-[0_12px_30px_rgba(121,12,18,0.12)]"
               >
                 {/* Washi Tape on Top Card */}
@@ -225,6 +238,25 @@ export default function Portfolio({ onSelectProject }) {
             ))}
           </AnimatePresence>
         </motion.div>
+
+        {/* Empty State jika tab kosong (misal Mobile App) */}
+        {filteredProjects.length === 0 && (
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="p-12 text-center rounded-2xl border border-dashed border-[#790C12]/20 bg-[#fffdfa] max-w-lg mx-auto"
+          >
+            <div className="w-14 h-14 rounded-full bg-[#790C12]/10 text-[#790C12] flex items-center justify-center mx-auto mb-3">
+              <Smartphone className="w-7 h-7" />
+            </div>
+            <h4 className="font-serif font-black text-xl text-[#241e1e] mb-1">
+              Belum Ada Proyek di Kategori Ini
+            </h4>
+            <p className="text-xs text-stone-600 leading-relaxed font-sans max-w-sm mx-auto">
+              Proyek aplikasi mobile dalam tahap eksplorasi dan pengembangan. Silakan cek tab <strong>UI/UX Design</strong> untuk melihat prototipe interaktif aplikasi mobile.
+            </p>
+          </motion.div>
+        )}
 
       </div>
     </section>
